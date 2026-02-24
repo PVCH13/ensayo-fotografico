@@ -37,16 +37,24 @@ p { margin-bottom: 25px; font-size: 1.15rem; text-align: justify; }
 .photo-item {
     margin: 60px auto;
     width: 100%;
-    max-width: var(--max-w); /* Asegura que la figura no pase de 800px */
+    max-width: var(--max-w);
     text-align: center;
+    /* NUEVO: Asegura que el contenedor se adapte al contenido centrado */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .photo-item img {
-    max-width: 100%; /* La foto nunca será más ancha que su contenedor (800px) */
-    height: auto;
+    /* Reglas para controlar el tamaño */
+    max-width: 100%;      /* No pasarse de los 800px de ancho */
+    max-height: 650px;    /* NUEVO: ¡El techo! Ninguna foto pasará de esta altura */
+    width: auto;          /* Deja que el ancho se calcule automáticamente */
+    height: auto;         /* Mantiene la proporción original siempre */
+
     display: block;
-    margin: 0 auto; /* Centrado horizontal */
     box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    border-radius: 2px;   /* Un toque sutil para suavizar las esquinas */
 }
 
 figcaption {
