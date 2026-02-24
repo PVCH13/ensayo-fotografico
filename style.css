@@ -1,67 +1,85 @@
 :root {
-    --bg-color: #f9f9f9;      /* Gris muy claro, más suave que el blanco puro */
-    --text-color: #222222;   /* Negro suave para facilitar la lectura */
-    --accent-color: #777777; /* Gris para pies de página y números */
-    --container-width: 800px; /* El ancho máximo que tendrán tus fotos */
+    --bg: #fdfdfd;
+    --text: #1a1a1a;
+    --gray: #666;
+    --max-w: 800px; /* Ancho máximo estricto */
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-family: 'Georgia', serif; /* Una fuente con remates da un aire más editorial */
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: 'Charter', 'Georgia', serif;
+    line-height: 1.8;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
 }
 
-header {
-    padding: 80px 20px 40px;
+.main-header {
     text-align: center;
+    padding: 100px 20px 60px;
+    max-width: var(--max-w);
+    margin: 0 auto;
 }
 
-h1 { 
-    font-weight: 400; 
-    letter-spacing: 2px; 
-    text-transform: uppercase;
-    font-size: 2.5rem;
+h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 10px; }
+h2 { font-size: 1.6rem; margin: 60px 0 30px; font-family: sans-serif; color: #333; }
+
+.author { font-style: italic; color: var(--gray); font-size: 1.1rem; }
+
+.content-wrapper {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 20px; /* Padding lateral para que no pegue a los bordes en móviles */
 }
 
-.gallery {
-    max-width: var(--container-width);
-    margin: 0 auto; /* Esto centra toda la galería */
-    padding: 20px;
-}
+p { margin-bottom: 25px; font-size: 1.15rem; text-align: justify; }
 
 .photo-item {
-    margin-bottom: 60px; /* Espacio entre cada foto */
+    margin: 60px auto;
+    width: 100%;
+    max-width: var(--max-w); /* Asegura que la figura no pase de 800px */
     text-align: center;
 }
 
 .photo-item img {
-    width: 100%;            /* La imagen ocupa el ancho de la galería (800px) */
+    max-width: 100%; /* La foto nunca será más ancha que su contenedor (800px) */
     height: auto;
     display: block;
-    margin: 0 auto;
-    border-radius: 2px;     /* Bordes apenas redondeados */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra muy sutil */
+    margin: 0 auto; /* Centrado horizontal */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
-.info {
-    margin-top: 20px;
-    padding: 0 10px;
-    display: inline-block;  /* Para que el pie de foto se alinee bien */
-    max-width: 90%;
+figcaption {
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: var(--gray);
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
-.info span { 
-    display: block;
-    font-size: 0.8rem; 
-    color: var(--accent-color);
-    margin-bottom: 5px;
+/* Animación de Fade-in */
+.fade-in {
+    animation: fadeIn ease 2.5s;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 footer {
-    padding: 40px;
+    text-align: center;
+    padding: 100px 20px;
+    font-family: sans-serif;
     font-size: 0.9rem;
-    color: var(--accent-color);
+    color: var(--gray);
+    border-top: 1px solid #eee;
+    margin-top: 100px;
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    p { text-align: left; }
 }
